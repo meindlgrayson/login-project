@@ -50,8 +50,6 @@ application.post('/login', (request, response) => {
   let loginPass = request.body.pass;
   var existingUser = users.find(user => { return (user.name == loginName && user.pass == loginPass)});
 
-  console.log(existingUser);
-
   if(existingUser){
     session.isAuthenticated = true;
     session.user = loginName;
@@ -59,17 +57,6 @@ application.post('/login', (request, response) => {
   else {
     session.isAuthenticated = false;
   }
-
-  console.log(session);
-
-  // for (i = 0; i < users.length; i++){
-  //   if (users[i].name == loginName && users[i].pass == loginPass){
-  //     users[i].isAuthenticated = true;
-  //   }
-  //   else {
-  //     users[i].isAuthenticated = false;
-  //   }
-  // }
 
   if (!session.isAuthenticated){
    let renderModel = {
@@ -79,7 +66,6 @@ application.post('/login', (request, response) => {
   }
   else {
     response.redirect('/');
-    console.log('redirect');
   }
 })
 
