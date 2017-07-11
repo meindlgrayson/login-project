@@ -7,6 +7,11 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <form method="post" action="/login">
+  <input type="text" name="name" placeholder="Username" /> 
+  <input type="text" name="pass" placeholder="Password" />
+  <button type="submmit">Login</button>
+  </form>
+  <p>{{error}}</p>
 </body>
 </html>
